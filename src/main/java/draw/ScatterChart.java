@@ -16,7 +16,7 @@ public class ScatterChart {
         Table bush = Table.read().csv("C:\\MyRepository\\Java\\Gmax\\src\\main\\java\\output\\result.csv");
         Plot.show(
                 ScatterPlot.create("Temperature statistics",
-                        bush, "Day", "Temperature"));
+                        bush, "Frequency", "Temperature X10"));
     }
 
 }

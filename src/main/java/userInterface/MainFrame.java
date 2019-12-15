@@ -74,13 +74,13 @@ public class MainFrame extends Application{
                         "-fx-font-size: 25;-fx-background-radius: 15px;");
         dataCbo.setMaxWidth(Double.MAX_VALUE);
 
-        dataCbo.getItems().addAll("Max air temperature","Min air temperature",
-                "Max dew temperature","Min dew temperature","Max atmospheric pressure","Min atmospheric pressure","Comprehensive statistics");
+        dataCbo.getItems().addAll("Max air temperature","Min air temperature");
+//                "Max dew temperature","Min dew temperature","Max atmospheric pressure","Min atmospheric pressure","Comprehensive statistics");
         String[] dataStr ={
                 "Max air temperature","Min air temperature",
-                "Max dew temperature","Min dew temperature",
-                "Max atmospheric pressure","Min atmospheric pressure",
-                "Comprehensive statistics"
+//                "Max dew temperature","Min dew temperature",
+//                "Max atmospheric pressure","Min atmospheric pressure",
+//                "Comprehensive statistics"
         };
 
         ComboBox<String> chartCbo = new ComboBox<>();
@@ -95,13 +95,13 @@ public class MainFrame extends Application{
             dataCbo.setEffect(glow);
         });
 
-        String[] maxAirTemperature = {"line chart","Scatter plot"};
-        String[] minAirTemperature = {"line chart","Scatter plot"};
-        String[] maxDewTemperature = {"line chart","Scatter plot"};
-        String[] minDewTemperature = {"line chart","Scatter plot"};
-        String[] maxAtomTemperature = {"line chart","Scatter plot"};
-        String[] minAtomTemperature = {"line chart","Scatter plot"};
-        String[] comprehensiveStatistics = {"3D scatter plot"};
+        String[] maxAirTemperature = {"Line chart","Scatter plot"};
+        String[] minAirTemperature = {"Line chart","Scatter plot"};
+//        String[] maxDewTemperature = {"line chart","Scatter plot"};
+//        String[] minDewTemperature = {"line chart","Scatter plot"};
+//        String[] maxAtomTemperature = {"line chart","Scatter plot"};
+//        String[] minAtomTemperature = {"line chart","Scatter plot"};
+//        String[] comprehensiveStatistics = {"3D scatter plot"};
 
         Label DataLabel = new Label("Data Source: ");
         DataLabel.setFont(Font.font("Segoe UI Light", 50));
@@ -130,28 +130,28 @@ public class MainFrame extends Application{
                 chartCbo.getItems().addAll(minAirTemperature);
 //                System.out.println(cityCbo.getItems());
             }
-            else if (dataCbo.getValue().equals(dataStr[2])){
-                chartCbo.getItems().addAll(maxDewTemperature);
-//                System.out.println(cityCbo.getItems());
-            }
-            else if(dataCbo.getValue().equals(dataStr[3])) {
-//                System.out.println(cityCbo.getItems());
-                chartCbo.getItems().addAll(minDewTemperature);
-            }
-            else if(dataCbo.getValue().equals(dataStr[4])) {
-//                System.out.println(cityCbo.getItems());
-                chartCbo.getItems().addAll(maxAtomTemperature);
-            }
-            else if(dataCbo.getValue().equals(dataStr[5])) {
-//                System.out.println(cityCbo.getItems());
-                chartCbo.getItems().addAll(minAtomTemperature);
-            }
-            else if(dataCbo.getValue().equals(dataStr[6])) {
-//                System.out.println(cityCbo.getItems());
-                chartCbo.getItems().addAll(comprehensiveStatistics);
-            }
-            Glow glow = new Glow(1);
-            ChartLabel.setEffect(glow);
+//            else if (dataCbo.getValue().equals(dataStr[2])){
+//                chartCbo.getItems().addAll(maxDewTemperature);
+////                System.out.println(cityCbo.getItems());
+//            }
+//            else if(dataCbo.getValue().equals(dataStr[3])) {
+////                System.out.println(cityCbo.getItems());
+//                chartCbo.getItems().addAll(minDewTemperature);
+//            }
+//            else if(dataCbo.getValue().equals(dataStr[4])) {
+////                System.out.println(cityCbo.getItems());
+//                chartCbo.getItems().addAll(maxAtomTemperature);
+//            }
+//            else if(dataCbo.getValue().equals(dataStr[5])) {
+////                System.out.println(cityCbo.getItems());
+//                chartCbo.getItems().addAll(minAtomTemperature);
+//            }
+//            else if(dataCbo.getValue().equals(dataStr[6])) {
+////                System.out.println(cityCbo.getItems());
+//                chartCbo.getItems().addAll(comprehensiveStatistics);
+//            }
+//            Glow glow = new Glow(1);
+//            ChartLabel.setEffect(glow);
         });
 
         Button graySelect = new Button("     Select     ");

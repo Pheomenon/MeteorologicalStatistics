@@ -19,6 +19,6 @@ public class LineChart {
         Plot.show(
                 LinePlot.create(
                         "Temperature statistics",
-                        bush, "Day", "Temperature"));
+                        bush, "Day", "Temperature X10"));
     }
 }

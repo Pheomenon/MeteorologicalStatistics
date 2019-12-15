@@ -9,7 +9,7 @@ import org.junit.Test;
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 
-public class Formatter {
+public class LineFormatter {
 private static String path ="C:\\MyRepository\\Java\\Gmax\\src\\main\\java\\output\\result.csv"; //目标文件路径
     private static File file = new File(path); //创建目标文件
     public void replaceTab(String oldString, String newString){
@@ -62,7 +62,7 @@ private static String path ="C:\\MyRepository\\Java\\Gmax\\src\\main\\java\\outp
             BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(newFile,true)));
             String string = null; //存储对目标文件读取的内容
             int sum = 0; //替换次数
-            bw.write("Day,Temperature\n");
+            bw.write("Day,Temperature X10\n");
             while ((string = br.readLine()) != null){
                 string = string.substring(0,4)+"/"+string.substring(4,5)+"/"+string.substring(5);
                 bw.write(string);

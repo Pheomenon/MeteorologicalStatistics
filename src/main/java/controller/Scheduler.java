@@ -1,10 +1,14 @@
 package controller;
 
 import converter.Converter;
-import converter.Formatter;
+import converter.LineFormatter;
+import converter.ScatterFormatter;
 import draw.LineChart;
 import draw.ScatterChart;
 import temperature.MaxTemperature;
+import temperature.MinTemperature;
+import temperature.ScatterMaxT;
+import temperature.ScatterMinT;
 
 import java.io.IOException;
 
@@ -24,18 +28,35 @@ public class Scheduler {
 //                "Comprehensive statistics"
 //        {"line chart","Scatter plot"};
 //        {"3D scatter plot"};
-        if(dataType.equals("Max air temperature")){
-            new MaxTemperature("C:\\MyRepository\\Java\\Gmax\\src\\main\\java\\input","C:\\MyRepository\\Java\\Gmax\\src\\main\\java\\output");
+        if (dataType.equals("Max air temperature") && chartType.equals("Line chart")) {
+            new MaxTemperature("C:\\MyRepository\\Java\\Gmax\\src\\main\\java\\input", "C:\\MyRepository\\Java\\Gmax\\src\\main\\java\\output");
         }
-        drewChart(chartType);
+        if (dataType.equals("Min air temperature") && chartType.equals("Line chart")) {
+            new MinTemperature("C:\\MyRepository\\Java\\Gmax\\src\\main\\java\\input", "C:\\MyRepository\\Java\\Gmax\\src\\main\\java\\output");
+        }
+        if (dataType.equals("Max air temperature") && chartType.equals("Scatter plot")) {
+            new ScatterMaxT("C:\\MyRepository\\Java\\Gmax\\src\\main\\java\\input", "C:\\MyRepository\\Java\\Gmax\\src\\main\\java\\output");
+        }
+        if (dataType.equals("Min air temperature") && chartType.equals("Scatter plot")) {
+            new ScatterMinT("C:\\MyRepository\\Java\\Gmax\\src\\main\\java\\input", "C:\\MyRepository\\Java\\Gmax\\src\\main\\java\\output");
+        }
+//        if(dataType.equals("Max dew temperature"))
+//            new MaxDew("C:\\MyRepository\\Java\\Gmax\\src\\main\\java\\input","C:\\MyRepository\\Java\\Gmax\\src\\main\\java\\output");
+        new Converter().txtToCsv();
+        if (chartType.equals("Line chart")) {
+            new LineFormatter().startFormat();
+            drewLineChart();
+        }
+        else {
+            new ScatterFormatter().startFormat();
+            drewScatterPlot();
+        }
+
     }
-    public void drewChart(String chartType) throws IOException {
-        if(chartType.equals("line chart")){
-            LineChart lineChart = new LineChart();
-            lineChart.line();
+    public void drewLineChart() throws IOException {
+          new LineChart().line();
         }
-        else{
-            new ScatterChart().scatter();
-        }
+    public void drewScatterPlot() throws IOException {
+        new ScatterChart().scatter();
     }
 }
