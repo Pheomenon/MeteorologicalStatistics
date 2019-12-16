@@ -89,12 +89,6 @@ public class MainFrame extends Application{
                 "-fx-background-color:#DDDDDD;-fx-font-family: Fanwood;" +
                         "-fx-font-size: 25;-fx-background-radius: 15px;");
 
-        dataCbo.setOnMouseClicked(e->{
-            chartCbo.getItems().removeAll(chartCbo.getItems());
-            Glow glow = new Glow(1);
-            dataCbo.setEffect(glow);
-        });
-
         String[] maxAirTemperature = {"Line chart","Scatter plot"};
         String[] minAirTemperature = {"Line chart","Scatter plot"};
 //        String[] maxDewTemperature = {"line chart","Scatter plot"};
@@ -106,8 +100,32 @@ public class MainFrame extends Application{
         Label DataLabel = new Label("Data Source: ");
         DataLabel.setFont(Font.font("Segoe UI Light", 50));
 
+        dataCbo.setOnMouseClicked(e->{
+            chartCbo.getItems().removeAll(chartCbo.getItems());
+        });
+
+        dataCbo.setOnMouseEntered(e->{
+            Glow glow = new Glow(1);
+            DataLabel.setEffect(glow);
+        });
+
+        dataCbo.setOnMouseExited(e->{
+            Glow glow = new Glow(0);
+            DataLabel.setEffect(glow);
+        });
+
         Label ChartLabel = new Label("Chart type: ");
         ChartLabel.setFont(Font.font("Segoe UI Light", 50));
+
+        chartCbo.setOnMouseEntered(e->{
+            Glow glow = new Glow(1);
+            ChartLabel.setEffect(glow);
+        });
+
+        chartCbo.setOnMouseExited(e->{
+            Glow glow = new Glow(0);
+            ChartLabel.setEffect(glow);
+        });
 
         Text title = new Text("Meteorological statistics");
         title.setFont(Font.font("Century Gothic",120));
@@ -190,12 +208,12 @@ public class MainFrame extends Application{
         buttFade.setCycleCount(1);
 
         graySelect.setOnMouseEntered(e->{
-            FadeTransition fromGrayToBlue = new FadeTransition(Duration.millis(1000), blueSelect);
+            FadeTransition fromGrayToBlue = new FadeTransition(Duration.millis(500), blueSelect);
             blueSelect.setVisible(true);
             fromGrayToBlue.setFromValue(0.0f);
             fromGrayToBlue.setToValue(1.0f);
 
-            FadeTransition fromGrayToBlue1 = new FadeTransition(Duration.millis(1000), graySelect);
+            FadeTransition fromGrayToBlue1 = new FadeTransition(Duration.millis(500), graySelect);
             fromGrayToBlue1.setFromValue(1.0f);
             fromGrayToBlue1.setToValue(0.0f);
 
@@ -204,11 +222,11 @@ public class MainFrame extends Application{
         });
 
         graySelect.setOnMouseExited(e->{
-            FadeTransition fromGrayToBlue = new FadeTransition(Duration.millis(1000), graySelect);
+            FadeTransition fromGrayToBlue = new FadeTransition(Duration.millis(500), graySelect);
             fromGrayToBlue.setFromValue(0.0f);
             fromGrayToBlue.setToValue(1.0f);
 
-            FadeTransition fromGrayToBlue1 = new FadeTransition(Duration.millis(1000), blueSelect);
+            FadeTransition fromGrayToBlue1 = new FadeTransition(Duration.millis(500), blueSelect);
             fromGrayToBlue1.setFromValue(1.0f);
             fromGrayToBlue1.setToValue(0.0f);
             ParallelTransition pt1 = new ParallelTransition(fromGrayToBlue,fromGrayToBlue1);
@@ -231,7 +249,7 @@ public class MainFrame extends Application{
         GridPane.setHalignment(blueSelect,HPos.LEFT);
         GridPane.setHalignment(earth,HPos.CENTER);
 
-        pane.setGridLinesVisible(true);
+//        pane.setGridLinesVisible(true);
         primaryStage.setWidth(1500);
         primaryStage.setHeight(1000);
         Scene scene = new Scene(pane);
