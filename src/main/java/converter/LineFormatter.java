@@ -43,7 +43,7 @@ private static String path ="C:\\MyRepository\\Java\\Gmax\\src\\main\\java\\outp
             file.delete(); //删除源文件
             newFile.renameTo(new File(filePath)); //将新文件更名为源文件
             long time = System.currentTimeMillis() - start; //整个操作所用时间;
-            System.out.println(sum+"个"+oldString+"替换成"+newString+"耗费时间:"+time);
+            System.out.println(sum+"项:"+time+"ms");
         } catch(Exception e){
             System.out.println(e.getMessage());
         }
