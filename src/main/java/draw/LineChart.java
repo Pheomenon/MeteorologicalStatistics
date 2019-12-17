@@ -3,7 +3,6 @@ package draw;
 import org.junit.Test;
 import tech.tablesaw.api.Table;
 import tech.tablesaw.plotly.Plot;
-import tech.tablesaw.plotly.api.AreaPlot;
 import tech.tablesaw.plotly.api.LinePlot;
 
 import java.io.IOException;
